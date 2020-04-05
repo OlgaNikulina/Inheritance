@@ -5,7 +5,8 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import repository.ProductRepository;
+import ru.netology.domain.repository.ProductRepository;
+import ru.netology.domain.Manager.ProductMananger;
 import ru.netology.domain.Product;
 
 import static org.junit.jupiter.api.Assertions.*;
