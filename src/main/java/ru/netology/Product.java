@@ -37,5 +37,31 @@ public class Product {
     public void setPrice(int price) {
         this.price = price;
     }
+
+    public boolean matches(String search) {
+        Product[] items = new Product[0];
+
+        if (product instanceof Book) {
+            Book book = (Book) product;
+            if (book.getName().equalsIgnoreCase(search)) {
+                return true;
+            }
+            if (book.getAuthor().equalsIgnoreCase(search)) {
+                return true;
+            }
+
+            if (product instanceof Smartphone) {
+                Smartphone smartphone = (Smartphone) product;
+                if (smartphone.getName().equalsIgnoreCase(search)) {
+                    return true;
+                }
+                if (smartphone.getProducer().equalsIgnoreCase(search)) {
+                    return true;
+                }
+                return false;
+            }
+        }
+        return false;
+    }
 }
 
