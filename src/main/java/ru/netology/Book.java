@@ -2,8 +2,8 @@ package ru.netology;
 
 import java.util.Objects;
 
-public class Book extends Product{
-    private  String author;
+public class Book extends Product {
+    private String author;
 
     public Book() {
         super();
@@ -44,13 +44,16 @@ public class Book extends Product{
 
     @Override
     public boolean matches(String search) {
-        if (this == search) return true;
-        if (search = null || getClass() != search.getClass()) return false;
-        if (!super.matches(search)) return false;
+        return super.matches(search) || getClass() != getClass();
+        if (super.matches(search)) return false;
         Book book = (Book) search;
         return author == book.author &&
                 Objects.equals(author, book.author);
     }
 }
+    //public boolean matches(String search) {
+     //   return super.matches(search) || getAuthor() == getAuthor();
+   // }
+//}
 
 

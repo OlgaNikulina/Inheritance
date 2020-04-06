@@ -1,6 +1,7 @@
 package ru.netology;
 
 public class Product {
+    private ProductRepository repository;
     private int id;
     private String name;
     private int price;
@@ -40,8 +41,18 @@ public class Product {
 
 
     public boolean matches(String search) {
-        return super.matches(search) || getName() != search.getName(); return false;
+        Product[] result = new Product[0];
+        for (Product product : repository.findAll()) {
+            if (product.matches(search)) {
+                Product[] tmp = new Product[result.length];
+                System.arraycopy(product, 0, tmp, 0, result.length);
+                tmp[tmp.length] = product;
+                result = tmp;
+            }
+        }
+        return true;
     }
 }
+
 
 
