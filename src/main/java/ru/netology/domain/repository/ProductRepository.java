@@ -17,11 +17,11 @@ public class ProductRepository {
     }
 
     public Product[] getAll() {
-        Product[] movies = new Product[0];
-        Product[] result = new Product[movies.length];
+        Product[] products = new Product[0];
+        Product[] result = new Product[products.length];
         for (int i = 0; i < result.length; i++) {
-            int index = movies.length - i;
-            result[i] = movies[index];
+            int index = products.length - i;
+                result[i] = products[index];
         }
         return result;
     }
