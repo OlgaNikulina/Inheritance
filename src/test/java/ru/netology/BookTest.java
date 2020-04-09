@@ -10,11 +10,11 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
 
-@ExtendWith(MockitoExtension.class)
+//@ExtendWith(MockitoExtension.class)
 class BookTest {
-    @Mock
+    //@Mock
     private ProductRepository repository;
-    @InjectMocks
+    //@InjectMocks
     private ProductManager manager;
     private Product[] product;
     private Book[] book;
@@ -22,7 +22,7 @@ class BookTest {
     private Book second = new Book(2, "The Hobbit", 250, "John Ronald Reuel Tolkien");
     private Book third = new Book(3, "Доктор Живаго", 300, "Борис Пастернак");
 
-    @BeforeEach
+    //@BeforeEach
     @Test
     public void shouldGetFieldsFromSuperClass(){
         Book book = new Book();
@@ -46,8 +46,17 @@ class BookTest {
     @Test
     public void shouldGetIfMatches() {
 
-     //   String search = "Faust";
-      //  Product[] returned = new Book[]{first, second, third};
+     String search = "Faust";
+
+     manager.add(first);
+     manager.add(second);
+     manager.add(third);
+
+     book.m
+     Product[] expected = new Product[]{first};
+     Product[] actual = repository.findAll();
+
+     assertEquals(expected, actual);
         //doReturn(returned).when(repository).getAll();
         //doNothing().when(book).matches(search);
 
@@ -56,6 +65,6 @@ class BookTest {
         //Product[] actual = repository.findAll();
         //assertEquals(expected, actual);
 
-        verify(book).matches(search);
+      //  verify(book).matches(search);
     }
 }
