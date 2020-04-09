@@ -17,8 +17,8 @@ public class ProductRepository {
     }
 
     public Product[] getAll() {
-        Product[] products = new Product[0];
-        Product[] result = new Product[products.length];
+        Product[] products = new Product[];
+        Product[] result = new Product[0];
         for (int i = 0; i < result.length; i++) {
             int index = products.length - i;
                 result[i] = products[index];

@@ -8,7 +8,7 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import ru.netology.domain.Book;
 import ru.netology.domain.repository.ProductRepository;
-import ru.netology.domain.Manager.ProductMananger;
+import ru.netology.domain.Manager.ProductManager;
 import ru.netology.domain.Product;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -17,11 +17,11 @@ import static org.mockito.Mockito.*;
 
 
 @ExtendWith(MockitoExtension.class)
-class ProductManangerTest {
+class ProductManagerTest {
     @Mock
     private ProductRepository repository;
     @InjectMocks
-    private ProductMananger mananger;
+    private ProductManager manager;
     private Book[] book;
     private Book first = new Book(1, "Faust", 300, "Johann Wolfgang von Goethe");
     private Book second = new Book(2, "The Hobbit", 250, "John Ronald Reuel Tolkien");
@@ -30,9 +30,9 @@ class ProductManangerTest {
     @BeforeEach
     @Test
     public void Set(){
-        mananger.add(first);
-        mananger.add(second);
-        mananger.add(third);
+        manager.add(first);
+        manager.add(second);
+        manager.add(third);
     }
 
     @Test
@@ -40,14 +40,14 @@ class ProductManangerTest {
         String text = "Faust";
         Product[] returned = new Product[]{};
         doReturn(returned).when(repository).findAll();
-        doNothing().when(mananger.searchBy(text));
+        doNothing().when(manager.searchBy(text));
 
-        mananger.searchBy("Faust");
+        manager.searchBy("Faust");
         Product[] expected = new Product[]{};
-        Product[] actual = repository.getAll();
+        Product[] actual = repository.findAll();
         assertArrayEquals(expected, actual);
 
-        verify(mananger).searchBy(text);
+        verify(manager).searchBy(text);
     }
 }
 //E.g. thenReturn() may be missing.

@@ -40,7 +40,7 @@ public class Book extends Product{
     public String toString() {
         return "Book{" +
                 "author='" + author + '\'' +
-                '}';
+                "} " + super.toString();
     }
 }
 

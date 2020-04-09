@@ -5,11 +5,11 @@ import ru.netology.domain.Book;
 import ru.netology.domain.Product;
 import ru.netology.domain.Smartphone;
 
-public class ProductMananger {
+public class ProductManager {
 
     private ProductRepository repository;
 
-    public ProductMananger(ProductRepository repository) {
+    public ProductManager(ProductRepository repository) {
         this.repository = repository;
     }
 
