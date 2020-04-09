@@ -1,11 +1,15 @@
 package ru.netology.domain.repository;
 
+import ru.netology.domain.Book;
 import ru.netology.domain.Product;
 
 import javax.swing.*;
 
 public class ProductRepository {
-    private Product[] items = new Product[0];
+    private Book first = new Book(1, "Faust", 300, "Johann Wolfgang von Goethe");
+    private Book second = new Book(2, "The Hobbit", 250, "John Ronald Reuel Tolkien");
+
+    private Product[] items = new Product[]{};
 
     public void save(Product item) {
         int length = items.length + 1;
@@ -17,11 +21,11 @@ public class ProductRepository {
     }
 
     public Product[] getAll() {
-        Product[] products = new Product[];
-        Product[] result = new Product[0];
+        int length = items.length + 1;
+        Product[] result = new Product[items.length];
         for (int i = 0; i < result.length; i++) {
-            int index = products.length - i;
-                result[i] = products[index];
+            int index = items.length - 1;
+                result[i] = items[index];
         }
         return result;
     }

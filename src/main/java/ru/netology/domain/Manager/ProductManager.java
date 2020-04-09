@@ -20,7 +20,7 @@ public class ProductManager {
 
     public Product[] searchBy(String text) {
         Product[] result = new Product[0];
-        for (Product product : repository.getAll()) {
+        for (Product product: repository.findAll()) {
             if (matches(product, text)) {
                 Product[] tmp = new Product[result.length + 1];
                 System.arraycopy(product, 0, tmp, 0, result.length);
