@@ -24,20 +24,20 @@ class BookTest {
 
     //@BeforeEach
     @Test
-    public void shouldGetFieldsFromSuperClass(){
+    public void shouldGetFieldsFromSuperClass() {
         Book book = new Book();
     }
 
     @Test
-    public void shouldCastFromParentClass(){
+    public void shouldCastFromParentClass() {
         Product product = new Book();
-        if (product instanceof Book){
+        if (product instanceof Book) {
             Book book = (Book) product;
         }
     }
 
     @Test
-    public void Set(){
+    public void Set() {
         manager.add(first);
         manager.add(second);
         manager.add(third);
@@ -46,25 +46,16 @@ class BookTest {
     @Test
     public void shouldGetIfMatches() {
 
-     String search = "Faust";
+        String search = "Faust";
 
-     manager.add(first);
-     manager.add(second);
-     manager.add(third);
+        manager.add(first);
+        manager.add(second);
+        manager.add(third);
 
-     book.m
-     Product[] expected = new Product[]{first};
-     Product[] actual = repository.findAll();
 
-     assertEquals(expected, actual);
-        //doReturn(returned).when(repository).getAll();
-        //doNothing().when(book).matches(search);
+        Product[] expected = new Product[]{first};
+        Product[] actual = repository.getAll();
 
-        //book.matches(search);
-        //Product[] expected = new Book[]{first, second, third};
-        //Product[] actual = repository.findAll();
-        //assertEquals(expected, actual);
-
-      //  verify(book).matches(search);
+        assertEquals(expected, actual);
     }
 }

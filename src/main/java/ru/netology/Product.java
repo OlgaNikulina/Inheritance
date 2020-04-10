@@ -43,10 +43,10 @@ public class Product {
         ProductRepository repository = new ProductRepository();
         Book book = new Book();
         for (Product product : repository.findAll())
-            if (search == book.getName()) {
+            if (search == product.getName()) {
                 return true;
             }
-        Book book1 = (Book) search;
+        Product product = (Product) search;
         return true;
     }
 }
