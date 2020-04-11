@@ -47,5 +47,3 @@ public class Book extends Product {
         return super.matches(search) || getAuthor() == getAuthor();
     }
 }
-
-

@@ -44,6 +44,5 @@ class ProductManagerTest {
         Product[] actual = repository.getAll();
 
         assertArrayEquals(expected, actual);
-
     }
 }
