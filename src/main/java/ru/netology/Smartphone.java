@@ -41,4 +41,10 @@ public class Smartphone extends Product {
                 "producer='" + producer + '\'' +
                 "} " + super.toString();
     }
-}
+
+    @Override
+    public boolean matches(String search) {
+            return super.matches(search) || getProducer() == getProducer();
+        }
+    }
+

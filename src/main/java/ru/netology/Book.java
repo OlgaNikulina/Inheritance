@@ -15,7 +15,6 @@ public class Book extends Product {
     }
 
 
-
     public String getAuthor() {
         return author;
     }
@@ -44,18 +43,9 @@ public class Book extends Product {
                 "} " + super.toString();
     }
 
-   // @Override
-    //public boolean matches(String search) {
-        //return super.matches(search) || getClass() != getClass();
-       // if (super.matches(search)) return false;
-        //Book book = (Book) search;
-       // return author == book.author &&
-        //        Objects.equals(author, book.author);
-   // }
+    public boolean matches(String search) {
+        return super.matches(search) || getAuthor() == getAuthor();
+    }
 }
-    //public boolean matches(String search) {
-     //   return super.matches(search) || getAuthor() == getAuthor();
-   // }
-//}
 
 
