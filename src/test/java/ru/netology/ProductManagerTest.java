@@ -6,14 +6,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class ProductManagerTest {
 
-    @Test
-    void add() {
-    }
-
-    @Test
-    void searchBy() {
-    }
-
     private ProductRepository repository = new ProductRepository();
     private ProductManager manager = new ProductManager(repository);
     private Product[] product = new Product[]{};
@@ -22,7 +14,6 @@ class ProductManagerTest {
     private Book second = new Book(2, "The Hobbit", 250, "John Ronald Reuel Tolkien");
     private Book third = new Book(3, "Доктор Живаго", 300, "Борис Пастернак");
 
-    // @BeforeEach
     @Test
     public void Set() {
         manager.add(first);
@@ -38,10 +29,8 @@ class ProductManagerTest {
         manager.add(second);
         manager.add(third);
 
-        manager.searchBy(text);
-
         Product[] expected = new Product[]{second};
-        Product[] actual = repository.getAll();
+        Product[] actual = manager.searchBy(text);
 
         assertArrayEquals(expected, actual);
     }
