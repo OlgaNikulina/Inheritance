@@ -39,37 +39,13 @@ public class Product {
     }
 
 
-    //    public boolean matches(String search) {
-//        ProductRepository repository = new ProductRepository();
-//        for (Product product : repository.findAll())
-//            if (product.getName().equalsIgnoreCase(search)) {
-//                return true;
-//            }
-//        Product product = new Product();
-//        if (product instanceof Book){
-//            Book book = (Book) product;
-//        return true;
-//        if (product instanceof Smartphone){
-//            Smartphone smartphone = (Smartphone) product;
-//            return true;
-//        }
-//
     public boolean matches(String search) {
-        Product product = new Product();
-
-        if (product instanceof Book) {
-            Book book = (Book) product;
-            if (book.getName().equalsIgnoreCase(search)) {
+        ProductRepository repository = new ProductRepository();
+        for (Product product : repository.findAll())
+            if (product.getName().equalsIgnoreCase(search)) {
                 return true;
             }
-            if (product instanceof Smartphone) {
-                Smartphone smartphone = (Smartphone) product;
-                if (smartphone.getName().equalsIgnoreCase(search)) {
-                    return true;
-                }
-                return true;
-            }
-        }
-        return false;
+        return true;
     }
 }
+

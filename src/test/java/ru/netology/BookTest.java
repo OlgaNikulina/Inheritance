@@ -1,39 +1,21 @@
 package ru.netology;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.mockito.junit.jupiter.MockitoExtension;
 
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.Mockito.*;
 
-//@ExtendWith(MockitoExtension.class)
 class BookTest {
-    //@Mock
-    private ProductRepository repository;
-    //@InjectMocks
-    private ProductManager manager;
-    private Product[] product;
-    private Book[] book;
+    private ProductRepository repository = new ProductRepository();
+    private ProductManager manager = new ProductManager(repository);
+    private Product[] product = new Product[]{};
     private Book first = new Book(1, "Faust", 300, "Johann Wolfgang von Goethe");
     private Book second = new Book(2, "The Hobbit", 250, "John Ronald Reuel Tolkien");
     private Book third = new Book(3, "Доктор Живаго", 300, "Борис Пастернак");
 
-    //@BeforeEach
     @Test
     public void shouldGetFieldsFromSuperClass() {
         Book book = new Book();
-    }
-
-    @Test
-    public void shouldCastFromParentClass() {
-        Product product = new Book();
-        if (product instanceof Book) {
-            Book book = (Book) product;
-        }
     }
 
     @Test
@@ -45,17 +27,18 @@ class BookTest {
 
     @Test
     public void shouldGetIfMatches() {
-
+        Product product = new Book();
         String search = "Faust";
 
         manager.add(first);
         manager.add(second);
         manager.add(third);
 
+        product.matches(search);
 
         Product[] expected = new Product[]{first};
-        Product[] actual = repository.getAll();
+        Product[] actual = repository.findAll();
 
-        assertEquals(expected, actual);
+        assertArrayEquals(expected, actual);
     }
 }

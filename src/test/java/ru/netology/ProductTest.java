@@ -1,6 +1,5 @@
 package ru.netology;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -21,17 +20,11 @@ class ProductTest {
         manager.add(first);
         manager.add(second);
         manager.add(third);
+
         product.matches(search);
+
         Product[] expected = new Product[]{second};
         Product[] actual = repository.getAll();
         assertArrayEquals(expected, actual);
-
-
-
-
-
-
-
-
     }
 }
