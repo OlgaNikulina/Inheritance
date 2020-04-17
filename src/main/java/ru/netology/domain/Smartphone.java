@@ -40,6 +40,6 @@ public class Smartphone extends Product {
     public String toString() {
         return "Smartphone{" +
                 "producer='" + producer + '\'' +
-                "} " + super.toString();
+                 "} " + super.toString();
     }
 }
