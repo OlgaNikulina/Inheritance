@@ -45,6 +45,9 @@ public class Smartphone extends Product {
     @Override
     public boolean matches(String search) {
 
-        return super.matches(search) || getProducer().equals(getProducer());
+        if (super.matches(search) || getProducer().equals(getProducer())) {
+            return true;
         }
+        return false;
     }
+}

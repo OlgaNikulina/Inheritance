@@ -44,6 +44,10 @@ public class Book extends Product {
     }
 
     public boolean matches(String search) {
-        return super.matches(search) || getAuthor().equals(getAuthor());
+
+        if (super.matches(search) || getAuthor().equals(getAuthor())) {
+            return false;
+        }
+        return true;
     }
 }

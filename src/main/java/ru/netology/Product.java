@@ -40,11 +40,7 @@ public class Product {
 
 
     public boolean matches(String search) {
-            Product product = new Product();
-            if (product.getName().equalsIgnoreCase(search)) {
-                return true;
-            }
-        return true;
+        return this.equals(search);
     }
 }
 

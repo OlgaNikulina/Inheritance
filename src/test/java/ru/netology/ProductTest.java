@@ -11,20 +11,19 @@ class ProductTest {
     private Book third = new Book(3, "Доктор Живаго", 300, "Борис Пастернак");
     private ProductRepository repository = new ProductRepository();
     private ProductManager manager = new ProductManager(repository);
-    Product[] product = new Product[]{};
+    private Product product = new Product();
+
 
     @Test
     void shouldGetBookIfMatches() {
-        Product product = new Product();
+
         String search = "The Hobbit";
         manager.add(first);
         manager.add(second);
         manager.add(third);
-
         product.matches(search);
-
         Product[] expected = new Product[]{second};
-        Product[] actual = repository.getAll();
+        Product[] actual = repository.findAll();
         assertArrayEquals(expected, actual);
     }
 }
