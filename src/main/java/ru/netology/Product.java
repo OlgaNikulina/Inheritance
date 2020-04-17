@@ -40,8 +40,7 @@ public class Product {
 
 
     public boolean matches(String search) {
-        ProductRepository repository = new ProductRepository();
-        for (Product product : repository.findAll())
+            Product product = new Product();
             if (product.getName().equalsIgnoreCase(search)) {
                 return true;
             }
