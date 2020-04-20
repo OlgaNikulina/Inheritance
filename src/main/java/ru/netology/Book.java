@@ -1,5 +1,7 @@
 package ru.netology;
 
+import com.sun.source.tree.BreakTree;
+
 import java.util.Objects;
 
 public class Book extends Product {
@@ -44,10 +46,6 @@ public class Book extends Product {
     }
 
     public boolean matches(String search) {
-
-        if (super.matches(search) || getAuthor().equals(getAuthor())) {
-            return false;
-        }
-        return true;
+        return super.matches(search) || getAuthor().equals(search);
     }
 }

@@ -1,29 +1,31 @@
 package ru.netology;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class ProductTest {
 
-    private Book first = new Book(1, "Faust", 300, "Johann Wolfgang von Goethe");
-    private Book second = new Book(2, "The Hobbit", 250, "John Ronald Reuel Tolkien");
-    private Book third = new Book(3, "Доктор Живаго", 300, "Борис Пастернак");
     private ProductRepository repository = new ProductRepository();
     private ProductManager manager = new ProductManager(repository);
-    private Product product = new Product();
-
+    private Product product = new Product(25, "bananas", 75);
 
     @Test
-    void shouldGetBookIfMatches() {
-
-        String search = "The Hobbit";
-        manager.add(first);
-        manager.add(second);
-        manager.add(third);
+    void shouldGetProduct() {
+        String search = "bananas";
+        manager.add(product);
         product.matches(search);
-        Product[] expected = new Product[]{second};
-        Product[] actual = repository.findAll();
-        assertArrayEquals(expected, actual);
+        boolean actual = product.matches(search);
+        Assertions.assertEquals(true, actual);
+    }
+
+    @Test
+    void shouldNotGetProduct() {
+        String search = "apples";
+        manager.add(product);
+        product.matches(search);
+        boolean actual = product.matches(search);
+        Assertions.assertEquals(false, actual);
     }
 }

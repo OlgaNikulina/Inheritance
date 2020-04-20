@@ -1,9 +1,9 @@
 package ru.netology;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertArrayEquals;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 class BookTest {
     private ProductRepository repository = new ProductRepository();
@@ -11,12 +11,8 @@ class BookTest {
     private Book first = new Book(1, "Faust", 300, "Johann Wolfgang von Goethe");
     private Book second = new Book(2, "The Hobbit", 250, "John Ronald Reuel Tolkien");
     private Book third = new Book(3, "Доктор Живаго", 300, "Борис Пастернак");
-
-    @Test
-    public void shouldGetFieldsFromSuperClass() {
-        Book book = new Book();
-    }
-
+    private Product product = new Book(1, "Faust", 300, "Johann Wolfgang von Goethe");
+    private Book book = (Book) product;
     @Test
     public void Set() {
         manager.add(first);
@@ -25,18 +21,20 @@ class BookTest {
     }
 
     @Test
-    public void shouldGetIfMatches() {
-        Product product = new Product(1, "Faust", 300);
-        String search = "Faust";
+    public void shouldGetBook() {
+        String search = "Johann Wolfgang von Goethe";
+        manager.add(first);
+        boolean actual = book.matches(search);
+        Assertions.assertEquals(true, actual);
+    }
 
+    @Test
+    public void shouldNotGetBooks() {
+        String search = "Three pigs";
         manager.add(first);
         manager.add(second);
         manager.add(third);
-        product.matches(search);
-
-        Product[] expected = new Product[]{first};
-        Product[] actual = repository.findAll();
-
-        assertArrayEquals(expected, actual);
+        boolean actual = book.matches(search);
+        Assertions.assertEquals(false, actual);
     }
 }

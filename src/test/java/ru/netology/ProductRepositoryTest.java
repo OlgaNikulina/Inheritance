@@ -15,7 +15,7 @@ class ProductRepositoryTest {
     private Smartphone l324g = new Smartphone(3, "l324g", 12000, "LG");
 
     @Test
-    public void shouldGetThreeBooksAndEhreeSmartphones() {
+    public void shouldGetThreeBooksAndThreeSmartphones() {
 
         manager.add(first);
         manager.add(second);
