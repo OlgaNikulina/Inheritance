@@ -27,7 +27,6 @@ class SmartphoneTest {
     @Test
     public void shouldGetSmartphone() {
         String search = "Samsung";
-        manager.add(a71);
         boolean actual = smartphone.matches(search);
         assertTrue(actual);
     }
@@ -35,7 +34,6 @@ class SmartphoneTest {
     @Test
     public void shouldNotGetSmartphone() {
         String search = "miezu";
-        manager.add(a71);
         boolean actual = smartphone.matches(search);
         assertFalse(actual);
     }

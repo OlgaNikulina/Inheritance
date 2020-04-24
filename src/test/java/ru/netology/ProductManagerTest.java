@@ -1,5 +1,6 @@
 package ru.netology;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -15,7 +16,7 @@ class ProductManagerTest {
     private Smartphone a71 = new Smartphone(2, "a71", 20000, "Samsung");
     private Smartphone l324g = new Smartphone(3, "l324g", 12000, "LG");
 
-    @Test
+    @BeforeEach
     public void Set() {
         manager.add(first);
         manager.add(second);
@@ -29,10 +30,6 @@ class ProductManagerTest {
     void shouldFindBook() {
         String text = "The Hobbit";
 
-        manager.add(first);
-        manager.add(second);
-        manager.add(third);
-
         Product[] expected = new Product[]{second};
         Product[] actual = manager.searchBy(text);
 
@@ -42,10 +39,6 @@ class ProductManagerTest {
     @Test
     void shouldFindSmartphone() {
         String text = "Huawei";
-
-        manager.add(h450);
-        manager.add(a71);
-        manager.add(l324g);
 
         Product[] expected = new Product[]{h450};
         Product[] actual = manager.searchBy(text);
@@ -57,10 +50,6 @@ class ProductManagerTest {
     void shouldNotFindBook() {
         String text = "Three pigs";
 
-        manager.add(first);
-        manager.add(second);
-        manager.add(third);
-
         Product[] expected = new Product[]{};
         Product[] actual = manager.searchBy(text);
 
@@ -70,10 +59,6 @@ class ProductManagerTest {
     @Test
     void shouldNotFindSmartphone() {
         String text = "Miezu";
-
-        manager.add(h450);
-        manager.add(a71);
-        manager.add(l324g);
 
         Product[] expected = new Product[]{};
         Product[] actual = manager.searchBy(text);

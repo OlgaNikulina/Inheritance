@@ -25,7 +25,6 @@ class BookTest {
     @Test
     public void shouldGetBook() {
         String search = "Johann Wolfgang von Goethe";
-        manager.add(first);
         boolean actual = book.matches(search);
         assertTrue(actual);
     }
@@ -33,7 +32,6 @@ class BookTest {
     @Test
     public void shouldNotGetBooks() {
         String search = "Three pigs";
-
         boolean actual = book.matches(search);
         assertFalse(actual);
     }
