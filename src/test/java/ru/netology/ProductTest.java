@@ -17,7 +17,7 @@ class ProductTest {
         manager.add(product);
         product.matches(search);
         boolean actual = product.matches(search);
-        Assertions.assertEquals(true, actual);
+        assertTrue(actual);
     }
 
     @Test
@@ -26,6 +26,6 @@ class ProductTest {
         manager.add(product);
         product.matches(search);
         boolean actual = product.matches(search);
-        Assertions.assertEquals(false, actual);
+        assertFalse(actual);
     }
 }

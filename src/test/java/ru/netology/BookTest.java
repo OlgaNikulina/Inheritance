@@ -1,6 +1,7 @@
 package ru.netology;
 
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -13,7 +14,8 @@ class BookTest {
     private Book third = new Book(3, "Доктор Живаго", 300, "Борис Пастернак");
     private Product product = new Book(1, "Faust", 300, "Johann Wolfgang von Goethe");
     private Book book = (Book) product;
-    @Test
+
+    @BeforeEach
     public void Set() {
         manager.add(first);
         manager.add(second);
@@ -25,16 +27,14 @@ class BookTest {
         String search = "Johann Wolfgang von Goethe";
         manager.add(first);
         boolean actual = book.matches(search);
-        Assertions.assertEquals(true, actual);
+        assertTrue(actual);
     }
 
     @Test
     public void shouldNotGetBooks() {
         String search = "Three pigs";
-        manager.add(first);
-        manager.add(second);
-        manager.add(third);
+
         boolean actual = book.matches(search);
-        Assertions.assertEquals(false, actual);
+        assertFalse(actual);
     }
 }

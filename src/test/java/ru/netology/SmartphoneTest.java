@@ -1,6 +1,7 @@
 package ru.netology;
 
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.internal.junit.StrictStubsRunnerTestListener;
 
@@ -16,7 +17,7 @@ class SmartphoneTest {
     private Product product = new Smartphone(2, "a71", 20000, "Samsung");
     private Smartphone smartphone = (Smartphone) product;
 
-    @Test
+    @BeforeEach
     public void Set() {
         manager.add(h450);
         manager.add(a71);
@@ -28,7 +29,7 @@ class SmartphoneTest {
         String search = "Samsung";
         manager.add(a71);
         boolean actual = smartphone.matches(search);
-        Assertions.assertEquals(true, actual);
+        assertTrue(actual);
     }
 
     @Test
@@ -36,6 +37,6 @@ class SmartphoneTest {
         String search = "miezu";
         manager.add(a71);
         boolean actual = smartphone.matches(search);
-        Assertions.assertEquals(false, actual);
+        assertFalse(actual);
     }
 }
