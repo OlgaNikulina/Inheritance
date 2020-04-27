@@ -17,7 +17,8 @@ class ProductManagerTest {
     private Smartphone l324g = new Smartphone(3, "l324g", 12000, "LG");
 
     @BeforeEach
-    public void Set() {
+    public void  set() {
+        manager = new ProductManager(new ProductRepository());
         manager.add(first);
         manager.add(second);
         manager.add(third);
